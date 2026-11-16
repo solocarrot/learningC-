@@ -1,0 +1,19 @@
+1116
+
+1.reister >> memory >> network >>>> 하드디스크 -> 파일읽는속도차이 
+
+2. 파일관련스트림은 fstream이다 . 사용하려면 ifstream inStream; 처럼 변수할당을 해야함.
+
+3. open으로 실제파일과 연결한뒤에 ifstream >> 식으로 이용할수있음
+
+4. 파일을 사용한뒤에는 닫아야한다. inStream.close();
+
+5. 키보드 버퍼에있다가 엔터키를 치는순간에 버스(?)를통해서 CPU에전달된다
+
+6. flush함수를 사용하면 버퍼를 비울수잇다.
+
+7.	ios의 append는 원래있는 파일의 end of file칸에 넣어준다.
+
+8. ios::binary는 txt파일이아니라 이진형식의 파일로 열어준다.
+
+9. 
