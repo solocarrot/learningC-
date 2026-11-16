@@ -24,22 +24,50 @@
 //
 //}	
 
-#include <iostream>
-#include <fstream>
-#include <cassert>
-using namespace std;
+//#include <iostream>
+//#include <fstream>
+//#include <cassert>
+//using namespace std;
+//
+//int main(int argc, char* argv[])
+//{
+//	char ch;
+//	ifstream istr;
+//	ofstream ostr;
+//
+//	istr.open(argv[1], ios::in);
+//	if (!istr.is_open())
+//	{
+//		cout << argv[1] << "을 열수없습니다." << endl;
+//		assert(false);
+//	}
+//
+//}
+//
+//#include <fstream>
+//#include <iostream>
+//#include <cassert>
+//using namespace std;
+//
+//int main()
+//{
+//	int int1 = 2048, int2 = 127;
+//	double double1 = 45.78;
+//		
+//	ofstream strmOut("Sample", ios::out | ios::binary);
+//	if (!strmOut.is_open())
+//	{
+//		cout << "file is not opened" << endl;
+//		assert(false);
+//	}
+//
+//	strmOut.write(reinterpret_cast <char*>(&int1), sizeof(int));
+//	strmOut.write(reinterpret_cast<char*>(&int2), sizeof(int));
+//	strmOut.write(reinterpret_cast<char*>(&double1), sizeof(double));
+//	strmOut.close();
+//
+//
+//
+//}
 
-int main(int argc, char* argv[])
-{
-	char ch;
-	ifstream istr;
-	ofstream ostr;
 
-	istr.open(argv[1], ios::in);
-	if (!istr.is_open())
-	{
-		cout << argv[1] << "을 열수없습니다." << endl;
-		assert(false);
-	}
-
-}

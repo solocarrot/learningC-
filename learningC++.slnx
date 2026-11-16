@@ -4,4 +4,5 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="learningC++/learningC++.vcxproj" />
+  <Project Path="Std/Std.vcxproj" />
 </Solution>
