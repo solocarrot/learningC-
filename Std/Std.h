@@ -6,13 +6,19 @@
 class student
 {
 private:
-	char groupNum[2];
-	int stdId[8];
+	char groupName[2];
+	int stdId;
 	MyString stdName;
 
 public:
 	void deleteStd(int);
 	void addStd(student);
+	student(int id, char group[2], const MyString& name)
+		:stdId(id), stdName(name)
+	{
+		groupName[0] = group[0];
+		groupName[1] = group[1];
+	}
+
 
 };
-

@@ -5,22 +5,17 @@ class MyArrayList
 {
 private:
 	student** stdList;
-	int biggestStdId;
-	int smallestStdId;
-	int groupCnt;
-	int stdCnt;
+	//int biggestStdId;
+	//int smallestStdId;
+	//int groupCnt;
+	//int stdCnt;
+	int capacity;
+	int size;
 
 public:
-	int getSmallestId() const;
-	int setSmallestId();
-	int getBiggestId() const;
-	int setBiggestId();
-	int getStdNum() const;
-	int setStdNum();
-	int getGroupNum() const;
-	int setGroupNum();
-
-	void addStd(const student&);
+	void resize();
+	/*void appendStd(const student&);*/
+	void insertStd(const student&);
 	void deleteStd(const student&);
 
 };

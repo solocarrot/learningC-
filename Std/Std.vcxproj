@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\MyString\MyString\MyString.cpp" />
+    <ClCompile Include="MyArrayList.cpp" />
     <ClCompile Include="stdExample.cpp" />
     <ClCompile Include="stdExample.h" />
     <ClCompile Include="stdExampleMain.cpp" />
