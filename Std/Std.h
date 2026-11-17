@@ -15,3 +15,4 @@ public:
 	void addStd(student);
 
 };
+

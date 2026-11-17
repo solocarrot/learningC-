@@ -143,9 +143,11 @@
     <ClCompile Include="stdExample.cpp" />
     <ClCompile Include="stdExample.h" />
     <ClCompile Include="stdExampleMain.cpp" />
+    <ClCompile Include="studentMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\MyString\MyString\MyString.h" />
+    <ClInclude Include="MyArrayList.h" />
     <ClInclude Include="Std.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
