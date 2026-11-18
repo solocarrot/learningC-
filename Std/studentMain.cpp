@@ -33,4 +33,5 @@ int main(int argc, char* argv[])
 	//학생 객체를만들었으니까 이제 MyArr(student주소를 가지는 주소의배열)에 대입하기
 	//근데 대입할때 이 순서도 중요한데 와우 
 
+
 }

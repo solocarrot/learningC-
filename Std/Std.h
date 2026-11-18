@@ -19,6 +19,7 @@ public:
 		groupName[0] = group[0];
 		groupName[1] = group[1];
 	}
+	int getId() const { return stdId; }
 
 
 };
