@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\stdExample.obj",
+            "outputs": [
+                "x64\\Debug\\stdExample.h_ADA85075DFA1FD2B.ifc.dt.module.json",
+                "x64\\Debug\\stdExample.h_ADA85075DFA1FD2B.ifc.dt.d.json",
+                "x64\\Debug\\stdExample.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "C:\\Users\\W11\\source\\repos\\learningC-\\Std\\stdExample.h",
+                    "source-path": "c:\\users\\w11\\source\\repos\\learningc-\\std\\stdexample.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
