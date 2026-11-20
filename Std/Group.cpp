@@ -35,8 +35,8 @@ void Group::addGroup(const MyString& g)
 	group[size] = g;
 	size++;
 }
-
-//딜리트그룹은 MyArrayList에서 해결해야되는 데 좀 찝찝함.
+//
+//
 //void Group::deleteGroup(const MyString& g)
 //{
 //	for (int i = 0; i < size; i++)

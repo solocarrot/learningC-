@@ -7,7 +7,7 @@
 class student
 {
 private:
-	Group stdGroup;
+	MyString stdGroup;
 	int stdId;
 	MyString stdName;
 
@@ -15,12 +15,12 @@ public:
 	void deleteStd(int);
 	void addStd(student);
 	student(int id, const MyString& group, const MyString& name)
-		:stdId(id), stdName(name)
+		:stdId(id), stdName(name), stdGroup(group)
 	{
 		stdGroup.addGroup(group);
 	}
 	int getId() const { return stdId; }
-	MyString& getGroup() const { return	 }
+	MyString& getGroup() const { return	stdGroup; }
 
 
 };

@@ -11,5 +11,4 @@ public:
 	Group() {};
 	void reSize();
 	void addGroup(const MyString&);
-	//void deleteGroup(const MyString&);
 };

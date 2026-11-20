@@ -87,9 +87,13 @@ void MyArrayList::insertStd(int id, const MyString& group, const MyString& name)
 	//}
 }
 
-void MyArrayList::deleteGroup(const Group& g)
+void MyArrayList::deleteGroup(const MyString& g)
 {
-	
+	for (int i = 0; i < size; i++)
+	{
+		if (g == stdList[i]->getGroup()) return;
+	}
+	groupCnt--;
 }
 
 void MyArrayList::deleteStd(int id)
@@ -97,18 +101,24 @@ void MyArrayList::deleteStd(int id)
 	//1. id로 학생찾기 2. 학생지우기 3. 앞으로당기기
 	//++ 그룹이름에대해서도 더이상 학생이없으면 그룹을 없애주기
 	int deletePos;
-	for (deletePos = 0; deletePos < size - 1; deletePos++)
+	for (deletePos = 0; deletePos < size ; deletePos++)
 	{
 		if (id == stdList[deletePos]->getId())
 		{
-			deleteGroup(stdList[deletePos]->getGroup());
+			MyString temp = stdList[deletePos]->getGroup();
 			delete stdList[deletePos];
-		}
-
+			
+			for (int i = deletePos; i < size - 1; i++)
+			{
+				stdList[i] = stdList[i + 1];
+			}
+			size--;
+			deleteGroup(temp);
+			return;
 		
-
-
-
+		}
+	}
+}
 
 
 //		if (id > stdList[deletePos]->getId()) continue;
