@@ -8,7 +8,8 @@ private:
 	int capacity;
 	int size;
 public:
-	Group() {};
+	Group();
+	~Group();
 	void reSize();
 	void addGroup(const MyString&);
 };

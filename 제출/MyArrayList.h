@@ -25,4 +25,5 @@ public:
 	void changeSmallest();
 
 	void deleteGroup(const Group&);
+	void printAll(std::ostream& out);
 };

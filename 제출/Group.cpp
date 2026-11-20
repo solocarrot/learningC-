@@ -4,6 +4,7 @@ Group::Group()
 {
 	capacity = 4;
 	size = 0;
+	group = new MyString[capacity];
 }
 
 void Group::reSize()
@@ -24,6 +25,7 @@ void Group::reSize()
 //txt를 읽으면서 학생을 MyArrayList에 추가할때 그룹이 있나없나 확인하고 없으면 추가하기
 void Group::addGroup(const MyString& g)
 {
+	if (g == "-") return;
 	for (int i = 0; i < size; i++)
 	{
 		if (g == group[i])
@@ -34,6 +36,12 @@ void Group::addGroup(const MyString& g)
 	reSize();
 	group[size] = g;
 	size++;
+}
+
+Group::~Group()
+{
+	delete[] group;
+	group = nullptr;
 }
 //
 //
