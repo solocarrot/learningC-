@@ -2,24 +2,25 @@
 #include <fstream>
 #include <iostream>
 #include "MyString.h"
+#include "Group.h"
 
 class student
 {
 private:
-	char groupName[2];
+	Group stdGroup;
 	int stdId;
 	MyString stdName;
 
 public:
 	void deleteStd(int);
 	void addStd(student);
-	student(int id, char group[2], const MyString& name)
+	student(int id, const MyString& group, const MyString& name)
 		:stdId(id), stdName(name)
 	{
-		groupName[0] = group[0];
-		groupName[1] = group[1];
+		stdGroup.addGroup(group);
 	}
 	int getId() const { return stdId; }
+	MyString& getGroup() const { return	 }
 
 
 };

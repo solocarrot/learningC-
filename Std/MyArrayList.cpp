@@ -87,33 +87,50 @@ void MyArrayList::insertStd(int id, const MyString& group, const MyString& name)
 	//}
 }
 
+void MyArrayList::deleteGroup(const Group& g)
+{
+	
+}
+
 void MyArrayList::deleteStd(int id)
 {
 	//1. id로 학생찾기 2. 학생지우기 3. 앞으로당기기
+	//++ 그룹이름에대해서도 더이상 학생이없으면 그룹을 없애주기
 	int deletePos;
 	for (deletePos = 0; deletePos < size - 1; deletePos++)
 	{
-		//id가 학생리스트에있는 deletPos보다 크다는건 지우려는 학생이 좀더 뒤에있단 뜻이니까 그냥 넘어가기
-		if (id > stdList[deletePos]->getId()) continue;
-		else if(id == stdList[deletePos]->getId())
+		if (id == stdList[deletePos]->getId())
 		{
-			//id가 deletePos의 위치에 있는 값과 같다면 덮어씌우고 id도 바꿔주기
-			stdList[deletePos] = stdList[deletePos + 1];
-			id = stdList[deletePos]->getId();
-		}
-		else
-		{
-			cout << "제거할 값을 찾을 수 없습니다";
-			break;
+			deleteGroup(stdList[deletePos]->getGroup());
+			delete stdList[deletePos];
 		}
 
-	}
+		
 
-	//마지막학생을 nullptr로만들고 size를 한칸줄이기
-	stdList[size - 1] = nullptr;
-	size--;
 
-}
+
+
+
+//		if (id > stdList[deletePos]->getId()) continue;
+//		else if(id == stdList[deletePos]->getId())
+//		{
+//			//id가 deletePos의 위치에 있는 값과 같다면 덮어씌우고 id도 바꿔주기
+//			stdList[deletePos] = stdList[deletePos + 1];
+//			id = stdList[deletePos]->getId();
+//		}
+//		else
+//		{
+//			cout << "제거할 값을 찾을 수 없습니다";
+//			break;
+//		}
+//
+//	}
+//
+//	//마지막학생을 nullptr로만들고 size를 한칸줄이기
+//	stdList[size - 1] = nullptr;
+//	size--;
+//
+//}
 
 // 들어올 때마다 최댓값을 변경하는 함수들
 // 

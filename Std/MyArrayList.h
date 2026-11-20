@@ -24,4 +24,5 @@ public:
 	void changeBiggest();
 	void changeSmallest();
 
+	void deleteGroup(const Group&);
 };
