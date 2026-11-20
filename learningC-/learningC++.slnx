@@ -1,8 +1,0 @@
-<Solution>
-  <Configurations>
-    <Platform Name="x64" />
-    <Platform Name="x86" />
-  </Configurations>
-  <Project Path="learningC++/learningC++.vcxproj" Id="a2ed7f4d-a0f6-4127-8046-81cd739e0c9f" />
-  <Project Path="Std/Std.vcxproj" Id="c9551723-9bfb-49a0-990a-26a77efb68e6" />
-</Solution>

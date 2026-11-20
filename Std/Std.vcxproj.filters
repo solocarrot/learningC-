@@ -35,13 +35,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\MyString\MyString\MyString.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Std.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MyArrayList.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MyString\MyString\MyString.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

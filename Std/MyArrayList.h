@@ -1,23 +1,27 @@
 #pragma once
 #include "Std.h"
+#include <assert.h>
 
 class MyArrayList
 {
 private:
 	student** stdList;
-	//int biggestStdId;
-	//int smallestStdId;
-	//int groupCnt;
-	//int stdCnt;
+	int biggestStdId;
+	int smallestStdId;
+	int groupCnt;
+	int stdCnt;
 	int capacity;
 	int size;
 
 public:
 	MyArrayList() {};
 	void resize();
-	/*void appendStd(const student&);*/
-	void insertStd(const student&);
-	void deleteStd(const student&);
+	bool existSame(int);
+	void insertStd(int, const MyString&, const MyString&);
+	void deleteStd(int);
 	void pushList(int);
+
+	void changeBiggest();
+	void changeSmallest();
 
 };

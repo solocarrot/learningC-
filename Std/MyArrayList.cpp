@@ -4,7 +4,7 @@ MyArrayList::MyArrayList()
 {
 	size = 0;
 	capacity = 4;
-	stdList = new student*[capacity];
+	stdList = new student * [capacity];
 }
 
 void MyArrayList::resize()
@@ -12,7 +12,7 @@ void MyArrayList::resize()
 	if (size == capacity)
 	{
 		capacity *= 2;
-		student** temp= new student*[capacity];
+		student** temp = new student * [capacity];
 		for (int i = 0; i < this->size; i++)
 		{
 			temp[i] = stdList[i];
@@ -22,48 +22,128 @@ void MyArrayList::resize()
 	}
 }
 
-void MyArrayList::insertStd(const student& std)
+bool MyArrayList::existSame(int id)
 {
-	student* tempStd = new student(std);
-	//stdList의 크기가 0이면 id비교할필요없이 바로 대입해주기
-	if (size == 0)
+	//중복이 존재하는지 확인하는 함수 resize하는 타이밍을 재기위해서
+	for (int i = 0; i < size - 1; i++)
 	{
-		stdList[size] = tempStd;
-		size++;
-	}
-	else
-		//stdList의 크기가 1개보다많으면 이제 size - 1의 Id를 비교해서 새로들어올 Id가 더크면 젤뒤에 그냥넣지만 작다면 사이값에 대입하기 빈칸으로 만들고 뒤로 한칸씩밀어주기
-	{
-		//이게 새로운값이 젤 클때의 경우
-		if (std.getId() > stdList[size - 1]->getId())
+		if (stdList[i]->getId() == id)
 		{
-			stdList[size] = tempStd;
-			size++;
-		}
-		//새로들어올 값이 사이에 들어갈 경우
-		else
-		{
-			int i = size - 2;
-			while (std.getId() < stdList[i]->getId())
-			{
-				i--;
-			}
-			//i + 1 이가르키는 인덱스는 들어가야할 id의 위치와 같아졌다 
-			size++;
-			for (;i < size;i++)
-			{
-				
-			}
+			return true;
 		}
 	}
+	return false;
 }
 
-void MyArrayList::pushList(int i)
-//i에서 부터 size까지 쭉쭉밀어내는함수 (size는 안건들여도되나?)
+void MyArrayList::insertStd(int id, const MyString& group, const MyString& name)
 {
+	if (existSame(id) == true) return;
+
+	resize();
+	student* tempStd = new student(id, group, name);
+
+	int insertPos;
+	for (insertPos = size - 1; insertPos >= 0; insertPos--)
+	{
+		if (id < stdList[insertPos]->getId())
+		{
+			stdList[insertPos + 1] = stdList[insertPos];
+		}
+		else break;
+	}
+	stdList[insertPos + 1] = tempStd;
 	size++;
-	
+	////stdList의 크기가 0이면 id비교할필요없이 바로 대입해주기
+	//if (size == 0)
+	//{
+	//	stdList[size] = tempStd;
+	//	size++;
+	//}
+	//else
+	//	//stdList의 크기가 1개보다많으면 이제 size - 1의 Id를 비교해서 새로들어올 Id가 더크면 젤뒤에 그냥넣지만 작다면 사이값에 대입하기 빈칸으로 만들고 뒤로 한칸씩밀어주기
+	//{
+	//	//이게 새로운값이 젤 클때의 경우
+	//	if (id > stdList[size - 1]->getId())
+	//	{
+	//		stdList[size] = tempStd;
+	//		size++;
+	//	}
+	//	//새로들어올 값이 사이에 들어갈 경우
+	//	else
+	//	{
+	//		int i = size - 2;
+	//		while (id < stdList[i]->getId())
+	//		{
+	//			i--;
+	//		}
+	//		//i + 1이 가르키는 인덱스는 들어가야할 id의 위치와 같아졌다 
+	//		size++;
+	//		for (int j = i + 1;j < size - 1;j++)
+	//		{
+	//			stdList[j + 1] = stdList[j];
+	//		}
+	//		stdList[i + 1] = tempStd;
+	//	}
+	//}
 }
-//이제 생성자만들어주고, 입력받은거 삽입하는 함수를 만들어줘야돼 이때 학번가지고 순서정하는거에 집중하기. -1차끝 중간값기준으로하면 좋을듯?
-// delete구현하기 학번으로 찾아서 그학생을 삭제(size줄이고 앞으로한칸씩당기기)
-//출력하는 코드짜기 오퍼레이팅으로 메인에서 안해도알아서되게끔
+
+void MyArrayList::deleteStd(int id)
+{
+	//1. id로 학생찾기 2. 학생지우기 3. 앞으로당기기
+	int deletePos;
+	for (deletePos = 0; deletePos < size - 1; deletePos++)
+	{
+		//id가 학생리스트에있는 deletPos보다 크다는건 지우려는 학생이 좀더 뒤에있단 뜻이니까 그냥 넘어가기
+		if (id > stdList[deletePos]->getId()) continue;
+		else if(id == stdList[deletePos]->getId())
+		{
+			//id가 deletePos의 위치에 있는 값과 같다면 덮어씌우고 id도 바꿔주기
+			stdList[deletePos] = stdList[deletePos + 1];
+			id = stdList[deletePos]->getId();
+		}
+		else
+		{
+			cout << "제거할 값을 찾을 수 없습니다";
+			break;
+		}
+
+	}
+
+	//마지막학생을 nullptr로만들고 size를 한칸줄이기
+	stdList[size - 1] = nullptr;
+	size--;
+
+}
+
+// 들어올 때마다 최댓값을 변경하는 함수들
+// 
+//void MyArrayList::changeBiggest1(int id)
+//{
+//	if (id > biggestStdId) biggestStdId = id;
+//}
+//
+//void MyArrayList::changeSmallest1(int id)
+//{
+//	if (id < smallestStdId) smallestStdId = id;
+//}
+
+//출력하기전에 가장큰 id와 작은 id를 수정하기
+void MyArrayList::changeBiggest()
+{
+	if (stdList[size - 1]->getId() > biggestStdId) biggestStdId = stdList[size - 1]->getId();
+}
+
+void MyArrayList::changeSmallest()
+{
+	if (stdList[0]->getId() < smallestStdId) smallestStdId = stdList[0]->getId();
+}
+
+
+
+
+// 1. 학생삽입에서 학번같은경우구현 (resize를 하는타이밍에 유의) 
+// 2. insert하면서 최고학번 최저학번 학생수 그룹수 바꾸는것도 구현하기 출력하기전에 하는게 좋겠ㅈ? insert랑 delete할때ㅎ마다하는게좋으듯
+// 3. 출력하는 함수구현하기.
+
+
+// 그룹이름을 배열로 저장하는거랑 그냥 MyString으로 저장하는거랑차이
